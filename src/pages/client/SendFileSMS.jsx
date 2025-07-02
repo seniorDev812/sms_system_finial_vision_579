@@ -33,6 +33,7 @@ import { toast } from "sonner";
 import axios from "axios";
 import authService from "../../service/auth.js"; // adjust path as needed
 import { useClientHook } from "../../hooks/useClientHook";
+import { sendSms } from "../../service/clientProvider";
 
 export default function SendFileSMS() {
   const [senderIds, setSenderIds] = useState([]);

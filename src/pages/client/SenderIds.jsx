@@ -35,6 +35,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../../components/ui/dialog";
+import { updateSenderIdRequest, deleteSenderIdRequest } from "../../service/clientProvider";
 
 export default function SenderIds() {
   const [senderIds, setSenderIds] = useState([]);
@@ -407,57 +408,6 @@ export default function SenderIds() {
           </DialogContent>
         </Dialog>
       )}
-{/* 
-<TableRow key={sender.id} className="hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all duration-300">
-  <TableCell className="font-bold text-indigo-900 text-lg">
-    {editingId === sender.id ? (
-      <Input
-        value={editValues.senderId}
-        onChange={e => setEditValues({ ...editValues, senderId: e.target.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 11) })}
-        maxLength={11}
-        className="w-32"
-      />
-    ) : (
-      sender.senderId
-    )}
-  </TableCell>
-  <TableCell className="text-gray-600 max-w-xs">
-    {editingId === sender.id ? (
-      <Textarea
-        value={editValues.purpose}
-        onChange={e => setEditValues({ ...editValues, purpose: e.target.value })}
-        className="w-48"
-      />
-    ) : (
-      <div className="truncate" title={sender.purpose}>{sender.purpose}</div>
-    )}
-  </TableCell>
-  <TableCell>
-    <Badge className={`${getStatusColor(sender.status)} text-white flex items-center space-x-1 px-3 py-1`}>
-      {getStatusIcon(sender.status)}
-      <span className="capitalize">{sender.status}</span>
-    </Badge>
-  </TableCell>
-  <TableCell className="text-gray-600">{sender.submittedDate}</TableCell>
-  <TableCell className="text-gray-600">{sender.approvedDate || "-"}</TableCell>
-  <TableCell>
-    {sender.status !== "approved" && (
-      <div className="flex space-x-2">
-        {editingId === sender.id ? (
-          <>
-            <Button size="sm" onClick={handleEditSave} className="bg-green-500 text-white">Save</Button>
-            <Button size="sm" onClick={() => setEditingId(null)} className="bg-gray-300">Cancel</Button>
-          </>
-        ) : (
-          <>
-            <Button size="sm" onClick={() => handleEditClick(sender)} className="bg-yellow-400" title="Edit">✏️</Button>
-            <Button size="sm" onClick={() => handleDeleteClick(sender.id)} className="bg-red-500 text-white" title="Delete">🗑</Button>
-          </>
-        )}
-      </div>
-    )}
-  </TableCell>
-</TableRow> */}
     </ClientLayout>
   );
 }

@@ -13,7 +13,7 @@ const authService = {
   login: async (authData) => {
     try {
       let res = await axios.post(authService.url + "/auth/login", authData);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);

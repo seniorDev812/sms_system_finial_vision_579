@@ -7,7 +7,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.post(authService.url + "/sms/quick", payload);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       console.log("res-->sms:", res);
       return res;
     } catch (error) {
@@ -19,7 +19,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.post(authService.url + "/sms/bulk", payload);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res.data;
     } catch (error) {
       console.log("error", error.message);
@@ -30,7 +30,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.post(authService.url + "/sms/file", formData);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -41,7 +41,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.get(authService.url + "/groups");
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -67,11 +67,11 @@ const clientService = {
           authService.url + "/groups/upload-csv",
           newGroup
         );
-        if (res.data.message !== "success") throw new error(res.data.message);
+        if (res.data.message !== "success") throw new Error(res.data.message);
         return res;
       }
       const res = await axios.post(authService.url + "/groups", newGroup);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -82,7 +82,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.get(authService.url + "/templates");
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -93,7 +93,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.post(authService.url + "/templates", newTemplate);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -107,7 +107,7 @@ const clientService = {
         authService.url + `/templates/${id}`,
         newData
       );
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -118,7 +118,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.delete(authService.url + `/templates/${id}`);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -129,7 +129,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.get(authService.url + "/sender-ids");
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -143,7 +143,7 @@ const clientService = {
         authService.url + "/sender-ids",
         newSenderId
       );
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -155,7 +155,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.get(authService.url + "/campaigns");
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -166,7 +166,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.post(authService.url + "/campaigns", newCampaign);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -177,7 +177,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.put(authService.url + `/campaigns/${id}`, data);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res.data;
     } catch (error) {
       console.error("Error updating campaign:", error);
@@ -189,7 +189,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.delete(authService.url + `/campaigns/${id}`);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res.data;
     } catch (error) {
       console.error("Error deleting campaign:", error);
@@ -225,7 +225,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.get(authService.url + "/queue");
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -236,7 +236,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.post(authService.url + `/queue/${id}`);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -247,7 +247,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.delete(authService.url + `/queue/${id}`);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -258,7 +258,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.get(authService.url + "/reports", { params });
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -269,7 +269,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.put(authService.url + "/account/profile", updateData);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       return res;
     } catch (error) {
       console.log("error", error.message);
@@ -280,7 +280,7 @@ const clientService = {
     try {
       await authService.setToken();
       const res = await axios.put(authService.url + "/account/password", updateData);
-      if (res.data.message !== "success") throw new error(res.data.message);
+      if (res.data.message !== "success") throw new Error(res.data.message);
       console.log("res-password->", res.data);
       return res;
     } catch (error) {

@@ -53,6 +53,9 @@ export default function QueuedMessages() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
 
+  const [editMessage, setEditMessage] = useState(null);
+  const [showEditDialog, setShowEditDialog] = useState(false);
+
   const { getMessages, retryMessage, removeMessage } = useClientHook();
 
   const getStatusColor = (status) => {
